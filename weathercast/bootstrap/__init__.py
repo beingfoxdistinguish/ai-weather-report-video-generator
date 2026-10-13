@@ -1,0 +1,1 @@
+"""Entry layer: CLI, dependency self-check, and pipeline wiring."""
