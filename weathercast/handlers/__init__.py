@@ -1,0 +1,1 @@
+"""Thin request handlers — parse, validate, delegate, return."""
