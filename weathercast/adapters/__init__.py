@@ -1,0 +1,1 @@
+"""Platform and backend adapters. No business logic lives here."""
