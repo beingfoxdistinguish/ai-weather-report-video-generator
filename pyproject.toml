@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-weather-report-video-generator"
+version = "0.4.2"
+description = "Turn structured forecast data into a fully-rendered, narrated AI weather report video."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "weathercast-oss" }]
+keywords = ["weather", "video", "tts", "ffmpeg", "forecast", "generator"]
+
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.6",
+    "jinja2>=3.1",
+    "Pillow>=10.2",
+    "python-dateutil>=2.9",
+    "rich>=13.7",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+tts = ["piper-tts>=1.2", "pyttsx3>=2.90"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.4", "mypy>=1.9"]
+
+[project.scripts]
+weathercast = "weathercast.bootstrap.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["weathercast*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
